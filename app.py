@@ -3,7 +3,7 @@ import requests
 
 app = Flask(__name__)
 
-API_KEY = "1ef088a9f620c538e8a36b7e18ed0864"
+API_KEY = "1ef088a9f620c538e8a36b7e18ed0864"  # Your API Key
 BASE_URL = "http://api.openweathermap.org/data/2.5/weather"
 GEO_URL = "http://api.openweathermap.org/geo/1.0/direct"
 
@@ -43,7 +43,8 @@ def index():
                     if data.get('cod') == 200:
                         weather_data = {
                             'city': data['name'],
-                            'temperature': data['main']['temp'],
+                            'temperature_celsius': data['main']['temp'],
+                            'temperature_fahrenheit': (data['main']['temp'] * 9/5) + 32,
                             'description': data['weather'][0]['description'],
                             'icon': data['weather'][0]['icon'],
                             'humidity': data['main']['humidity'],
@@ -62,4 +63,3 @@ def index():
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
-
