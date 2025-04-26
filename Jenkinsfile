@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/kiran7733/weatherapp'
+                checkout scm
             }
         }
 
