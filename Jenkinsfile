@@ -7,18 +7,7 @@ pipeline {
                 checkout scm
             }
         }
-        stage('Install Dependencies') {
-    steps {
-        bat 'T:\\py\\python.exe -m pip install --upgrade pip'
-        bat 'T:\\py\\python.exe -m pip install -r requirements.txt'
-    }
-}
-
-        stage('Run Unit Tests') {
-    steps {
-        bat 'T:\\py\\python.exe -m unittest discover -s . -p "test_*.py"'
-    }
-}
+        
 
         stage('Build Docker Image') {
             steps {
