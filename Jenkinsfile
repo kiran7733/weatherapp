@@ -7,6 +7,11 @@ pipeline {
                 checkout scm
             }
         }
+        stage('Run Unit Tests') {
+            steps {
+                bat 'python -m unittest discover -s . -p "test_*.py"'
+            }
+        }
 
         stage('Build Docker Image') {
             steps {
