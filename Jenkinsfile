@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Run Unit Tests') {
     steps {
-        bat 'C:\\Users\\linga\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe -m unittest discover -s . -p "test_*.py"'
+        bat 'T:\\py\\python.exe -m unittest discover -s . -p "test_*.py"'
     }
 }
 
